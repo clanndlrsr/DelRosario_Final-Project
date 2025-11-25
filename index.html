@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Clann's Tech Space </title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #D2D2D2;
+            }
+            header { 
+                background-color: #294176; 
+                max-width: 100%;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                padding: 20px 50px;
+            }
+            header h1 {
+                font-size: 18px;
+                margin: 0;
+                color: #ffffff;
+                padding-bottom: 8px;
+                border-bottom: 3px solid rgba(255,255,255,0.95);
+                display: inline-block;
+            }
+            .nav-links {
+                margin-left: auto;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+            }
+            .nav-links a {
+                color: #ffffff;
+                text-decoration: none;
+                font-weight: 600;
+                padding-right: 20px;
+                font-size: 14px;
+                border-right: 2px solid rgba(255,255,255,0.5);
+            }
+            .nav-links a:hover {
+                color: #67b6ff;
+            }
+
+            main {
+                max-width: 1100px;
+                margin: 24px auto;
+                padding: 32px;
+                border-radius: 6px;
+                display: flex;
+                align-items: center;
+                gap: 32px;
+                min-height: calc(100vh - 120px);
+                box-sizing: border-box;
+                background-color: #E6E6E6;
+            }
+            .hero-left {
+                flex: 1;
+                padding-right: 20px;
+            }
+            .hero-left h1 {
+                font-size: 50px;
+                margin: 0 0 12px 0;
+                color: #111;
+            }
+            .hero-left p {
+                color: #3b3b3b;
+                line-height: 1.5;
+                max-width: 420px;
+                margin-bottom: 18px;
+            }
+            .btn-contact {
+                background-color: #c94c3a;
+                color: #fff;
+                border: none;
+                padding: 12px 20px;
+                border-radius: 24px;
+                font-weight: 700;
+                cursor: pointer;
+                box-shadow: 0 6px 0 rgba(0,0,0,0.06);
+                transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, opacity 120ms ease;
+                display: inline-block;
+                text-align: center;
+                text-decoration: none;
+            }
+            .btn-contact:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 10px 0 rgba(0,0,0,0.08);
+                opacity: 0.98;
+            }
+
+            .hero-right {
+                flex: 0 0 360px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .hero-right img {
+                max-width: 100%;
+                height: auto;
+                max-height: calc(100vh - 200px);
+                object-fit: contain;
+                display: block;
+            }
+
+            @media (max-width: 900px) {
+                main {
+                    flex-direction: column-reverse;
+                    text-align: center;
+                    min-height: auto;
+                    padding: 24px;
+                }
+                .hero-left h1 { font-size: 28px; }
+                .hero-right { flex: 0 0 280px; }
+                .hero-right img { max-height: 45vh; }
+            }
+            @media (max-width: 480px) {
+                .hero-left h1 { font-size: 22px; }
+                .hero-left p { max-width: 100%; }
+                .btn-contact { width: 100%; }
+                .hero-right { order: -1; margin-bottom: 12px; }
+                .hero-right img { max-height: 40vh; }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1> CLANN'S TECH SPACE </h1>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="index.html"><i class="bi bi-house"> </i><u> HOME </u></a>
+                <a href="#"><i class="bi bi-code-square"> </i> PROJECTS </a>
+                <a href="#" style="border-right: none;"><i class="bi bi-person-square"> </i> ABOUT ME </a>
+            </nav>
+        </header>
+        <main>
+            <div class="hero-left">
+                <h1> Hello! I'm Clann </h1>
+                <p> I'm exploring the world of ICT as a Grade 11 student, and 
+                    this portfolio is my space to showcase my journey, projects, 
+                    and dreams for the future. </p>
+                <a class="btn-contact" href="#"><i class="bi bi-telephone"> </i> Get In Touch!</a>
+            </div>
+            <div class="hero-right">
+                <img src="img/clann-anime.png" alt="Clann Daniel">
+            </div>
+        </main>
+    </body>
+</html>
