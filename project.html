@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Clann's Tech Space - Projects</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #D2D2D2;
+                color: #222;
+            }
+            header { 
+                background-color: #294176; 
+                max-width: 100%;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                padding: 20px 50px;
+            }
+            header h1 {
+                font-size: 18px;
+                margin: 0;
+                color: #ffffff;
+                padding-bottom: 8px;
+                border-bottom: 3px solid rgba(255,255,255,0.95);
+                display: inline-block;
+            }
+            .nav-links {
+                margin-left: auto;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+            }
+            .nav-links a {
+                color: #ffffff;
+                text-decoration: none;
+                font-weight: 600;
+                padding-right: 20px;
+                font-size: 14px;
+                border-right: 2px solid rgba(255,255,255,0.5);
+            }
+            .nav-links a:hover { color: #67b6ff; }
+
+            .projects-section {
+                max-width: 1100px;
+                margin: 48px auto;
+                padding: 0 20px 60px;
+            }
+            .projects-intro {
+                text-align: center;
+                margin-bottom: 28px;
+            }
+            .projects-intro h2 {
+                margin: 0 0 8px 0;
+                font-size: 22px;
+                color: #222;
+            }
+            .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 36px;
+                align-items: start;
+            }
+            .project-card {
+                background: transparent;
+                text-align: center;
+            }
+            .project-thumb {
+                background: #fff;
+                border-radius: 8px;
+                padding: 18px;
+                box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 160px;
+            }
+            .project-thumb img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 6px;
+            }
+            .project-title {
+                display: inline-block;
+                margin: 14px auto 12px auto;
+                background: #b94a3a;
+                color: #fff;
+                padding: 10px 20px;
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 16px;
+                text-decoration: none;
+                cursor: pointer;
+                transition: transform 150ms ease, box-shadow 150ms ease, opacity 150ms ease;
+            }
+            .project-title:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+                opacity: 0.98;
+            }
+            .project-title:focus {
+                outline: 3px solid rgba(185,74,58,0.18);
+                outline-offset: 3px;
+            }
+            .project-desc {
+                color: #444;
+                line-height: 1.5;
+                max-width: 520px;
+                margin: 0 auto;
+                font-size: 14px;
+            }
+
+            @media (max-width: 880px) {
+                .projects-grid { grid-template-columns: 1fr; gap: 22px; }
+                .project-thumb { min-height: 140px; }
+            }
+
+            .site-footer {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #b94a3a;
+                color: #fff;
+                padding: 12px 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 -6px 18px rgba(0,0,0,0.12);
+                z-index: 60;
+            }
+            .site-footer a { color: rgba(255,255,255,0.95); text-decoration: underline; }
+            body { padding-bottom: 64px; }
+
+            .site-footer p { font-size: 13px; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1> CLANN'S TECH SPACE </h1>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="index.html"><i class="bi bi-house"> </i>HOME</a>
+                <a href="project.html"><i class="bi bi-code-square"> </i><u>PROJECTS</u></a>
+                <a href="about.html" style="border-right: none;"><i class="bi bi-person-square"> </i>ABOUT ME</a>
+            </nav>
+        </header>
+        <main>
+            <section class="projects-section">
+                <div class="projects-intro">
+                    <h2>My School Projects</h2>
+                    <p style="color:#666; max-width:760px; margin:8px auto 0;">A brief showcase of web projects highlighting layout, content and UX design.</p>
+                </div>
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-thumb">
+                            <img src="img/activities/activity-1.png" alt="Flower Shop project screenshot">
+                        </div>
+                        <a class="project-title" href="https://flower-shopclanndlrsr.vercel.app/" target="_blank" rel="noopener noreferrer">Flower Shop</a>
+                        <p class="project-desc">The website is a simple flower shop design that showcases different indoor plants 
+                            with their names, pictures, and prices. It has clear sections like Home, About, Products, and Contact 
+                            Us, making it easy to explore and understand what the shop offers. The goal of the site is to present 
+                            the plants in a neat and visually pleasing way, while also giving visitors the basic information they 
+                            need if they were interested in buying.</p>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-thumb">
+                            <img src="img/activities/activity-2.png" alt="Culinary Adventure project screenshot">
+                        </div>
+                        <a class="project-title" href="https://del-rosario-culinary-adventure.vercel.app/" target="_blank" rel="noopener noreferrer">Culinary Adventure</a>
+                        <p class="project-desc">The website Taste Of Travel is a food-blog style page inviting visitors to explore 
+                            the bold flavors of Thai cuisine. It highlights a featured recipe — Tom Yum Goong — with detailed sections 
+                            for ingredients, preparation steps, and cooking tips. Through descriptive text and visual cues (like an 
+                            image of the Thai soup), it communicates not just how to cook a dish, but why its flavor components (sweet, 
+                            sour, salty, spicy) matter. The site combines storytelling and culinary education to engage food lovers and 
+                            home cooks.</p>
+                    </article>
+                </div>
+                <br>
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-thumb">
+                            <img src="img/activities/activity-3.png" alt="Harmony Heights project screenshot">
+                        </div>
+                        <a class="project-title" href="https://del-rosario-harmony-heights.vercel.app/" target="_blank" rel="noopener noreferrer">Harmony Heights</a>
+                        <p class="project-desc">The Harmony Heights site is a band-focused page that introduces the group, shares their 
+                            music, and keeps fans in the loop. It includes a section about the band’s style and members, options to 
+                            listen to their latest tracks, embedded performance clips, upcoming tour dates, social media follow-links, 
+                            and a contact form. The overall aim is to connect with visitors via music and performance, making it easy 
+                            for fans to engage and stay updated.</p>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-thumb">
+                            <img src="img/activities/activity-4.png" alt="First Webpage project screenshot">
+                        </div>
+                        <a class="project-title" href="https://del-rosario-my-first-webpage.vercel.app/" target="_blank" rel="noopener noreferrer">My First Webpage</a>
+                        <p class="project-desc">The My First Webpage site is a personal introduction page that simply welcomes visitors 
+                            with a clean headline “Welcome to my Webpage!” followed by a short note “This is my first webpage.” It’s 
+                            minimalistic by design—just enough to demonstrate basic HTML skills and give a first impression of the 
+                            author’s ability to put content online.</p>
+                    </article>
+                </div>
+                <br> 
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-thumb">
+                            <img src="img/activities/activity-5.png" alt="Form 101 project screenshot">
+                        </div>
+                        <a class="project-title" href="https://del-rosario-form-101.vercel.app/" target="_blank" rel="noopener noreferrer">Form 101</a>
+                        <p class="project-desc">The Form 101 page is a simple web form demo that invites users to fill in basic personal 
+                            details (name, address, email, contact number), choose their gender, and select hobbies. It also includes 
+                            some placeholder text (“Lorem ipsum …”) and a header image, which suggests this page is built to practice 
+                            form layout, user input fields, and basic design structure.</p>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-thumb">
+                            <img src="img/activities/activity-6.png" alt="Form 102 project screenshot">
+                        </div>
+                        <a class="project-title" href="https://del-rosario-forms-101.vercel.app/" target="_blank" rel="noopener noreferrer">Form 102</a>
+                        <p class="project-desc">The Forms 102 page is a student record form designed to gather personal and academic details. 
+                            It asks for information like full name, major, expected graduation year, address (with province selection), 
+                            email, phone number, and preferred method of contact. It also requests the date of first school visit and a 
+                            short self-description in three words. The layout focuses on collecting structured inputs in a clean, 
+                            straightforward manner.</p>
+                    </article>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <p style="margin:0; font-weight:600;">© 2025 Clann Daniel R. Del Rosario — @clanndlrsr</p>
+            </div>
+        </footer>
+    </body>
+</html>
