@@ -12,7 +12,36 @@
                 padding: 0;
                 background-color: #D2D2D2;
                 color: #222;
+                animation: pageLoad 600ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
             }
+
+            @keyframes pageLoad {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            ::-webkit-scrollbar {
+                width: 12px;
+            }
+            ::-webkit-scrollbar-track {
+                background: #E8E8E8;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #294176;
+                border-radius: 6px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: #1a2850;
+            }
+            * {
+                scrollbar-color: #294176 #E8E8E8;
+                scrollbar-width: thin;
+            }
+
             header { 
                 background-color: #294176; 
                 max-width: 100%;
@@ -42,8 +71,68 @@
                 padding-right: 20px;
                 font-size: 14px;
                 border-right: 2px solid rgba(255,255,255,0.5);
+                position: relative;
             }
             .nav-links a:hover { color: #67b6ff; }
+
+            .nav-toggle { display: none; }
+            .nav-toggle-label {
+                display: none;
+                cursor: pointer;
+                width: 42px;
+                height: 36px;
+                border-radius: 6px;
+                align-items: center;
+                justify-content: center;
+                background: transparent;
+                border: none;
+                color: #fff;
+                font-size: 20px;
+            }
+            .nav-toggle-label .hamburger {
+                display: inline-block;
+                width: 20px;
+                height: 2px;
+                background: #fff;
+                position: relative;
+            }
+            .nav-toggle-label .hamburger::before,
+            .nav-toggle-label .hamburger::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                width: 20px;
+                height: 2px;
+                background: #fff;
+            }
+            .nav-toggle-label .hamburger::before { top: -6px; }
+            .nav-toggle-label .hamburger::after { top: 6px; }
+
+            .header-inner { display: flex; align-items: center; width: 100%; gap: 16px; }
+
+            @media (max-width: 780px) {
+                header { padding: 12px 18px; }
+                .header-inner { gap: 12px; }
+                .nav-links { display: none; position: absolute; top: 60px; right: 18px; flex-direction: column; background: #294176; padding: 10px; border-radius: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.12); min-width: 180px; z-index: 50; }
+                .nav-links a { border-right: none; padding: 8px 12px; text-align: right; }
+                .nav-toggle-label { display: flex; }
+                .nav-toggle:checked + .nav-toggle-label + .nav-links { display: flex; }
+            }
+
+            .nav-links a::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -8px;
+                height: 3px;
+                width: 0;
+                background: rgba(255,255,255,0.95);
+                transition: width 220ms ease;
+            }
+            .nav-links a:hover::after,
+            .nav-links a.active::after {
+                width: 100%;
+            }
 
             .projects-section {
                 max-width: 1100px;
@@ -142,12 +231,16 @@
     </head>
     <body>
         <header>
-            <h1> CLANN'S TECH SPACE </h1>
-            <nav class="nav-links" aria-label="Main navigation">
-                <a href="index.html"><i class="bi bi-house"> </i>HOME</a>
-                <a href="project.html"><i class="bi bi-code-square"> </i><u>PROJECTS</u></a>
-                <a href="#" style="border-right: none;"><i class="bi bi-person-square"> </i>ABOUT ME</a>
-            </nav>
+            <div class="header-inner">
+                <h1> CLANN'S TECH SPACE </h1>
+                <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+                <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true"><span class="hamburger"></span></label>
+                <nav class="nav-links" aria-label="Main navigation">
+                    <a href="index.html"><i class="bi bi-house"> </i> HOME</a>
+                    <a href="project.html" class="active"><i class="bi bi-code-square"> </i> PROJECTS</a>
+                    <a href="about-me.html" style="border-right: none;"><i class="bi bi-person-square"> </i> ABOUT ME</a>
+                </nav>
+            </div>
         </header>
         <main>
             <section class="projects-section">

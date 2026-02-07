@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Clann's Tech Space - About Me</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #D2D2D2;
+                animation: pageLoad 600ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+            }
+
+            @keyframes pageLoad {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            ::-webkit-scrollbar {
+                width: 12px;
+            }
+            ::-webkit-scrollbar-track {
+                background: #E8E8E8;
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #294176;
+                border-radius: 6px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: #1a2850;
+            }
+            * {
+                scrollbar-color: #294176 #E8E8E8;
+                scrollbar-width: thin;
+            }
+
+            header { 
+                background-color: #294176; 
+                max-width: 100%;
+                margin: 0 auto;
+                display: flex;
+                align-items: center;
+                padding: 20px 50px;
+            }
+            header h1 {
+                font-size: 18px;
+                margin: 0;
+                color: #ffffff;
+                padding-bottom: 8px;
+                border-bottom: 3px solid rgba(255,255,255,0.95);
+                display: inline-block;
+            }
+            .nav-links {
+                margin-left: auto;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+            }
+            .nav-links a {
+                color: #ffffff;
+                text-decoration: none;
+                font-weight: 600;
+                padding-right: 20px;
+                font-size: 14px;
+                border-right: 2px solid rgba(255,255,255,0.5);
+                position: relative;
+            }
+            .nav-links a:hover {
+                color: #67b6ff;
+            }
+
+            .nav-toggle { display: none; }
+            .nav-toggle-label {
+                display: none;
+                cursor: pointer;
+                width: 42px;
+                height: 36px;
+                border-radius: 6px;
+                align-items: center;
+                justify-content: center;
+                background: transparent;
+                border: none;
+                color: #fff;
+                font-size: 20px;
+            }
+            .nav-toggle-label .hamburger {
+                display: inline-block;
+                width: 20px;
+                height: 2px;
+                background: #fff;
+                position: relative;
+            }
+            .nav-toggle-label .hamburger::before,
+            .nav-toggle-label .hamburger::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                width: 20px;
+                height: 2px;
+                background: #fff;
+            }
+            .nav-toggle-label .hamburger::before { top: -6px; }
+            .nav-toggle-label .hamburger::after { top: 6px; }
+
+            .header-inner { display: flex; align-items: center; width: 100%; gap: 16px; }
+
+            @media (max-width: 780px) {
+                header { padding: 12px 18px; }
+                .header-inner { gap: 12px; }
+                .nav-links { display: none; position: absolute; top: 60px; right: 18px; flex-direction: column; background: #294176; padding: 10px; border-radius: 8px; box-shadow: 0 6px 18px rgba(0,0,0,0.12); min-width: 180px; z-index: 50; }
+                .nav-links a { border-right: none; padding: 8px 12px; text-align: right; }
+                .nav-toggle-label { display: flex; }
+                .nav-toggle:checked + .nav-toggle-label + .nav-links { display: flex; }
+            }
+
+            .nav-links a::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -8px;
+                height: 3px;
+                width: 0;
+                background: rgba(255,255,255,0.95);
+                transition: width 220ms ease;
+            }
+            .nav-links a:hover::after,
+            .nav-links a.active::after {
+                width: 100%;
+            }
+
+            .site-footer {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #b94a3a;
+                color: #fff;
+                padding: 12px 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 -6px 18px rgba(0,0,0,0.12);
+                z-index: 60;
+            }
+            .site-footer a { color: rgba(255,255,255,0.95); text-decoration: underline; }
+            body { padding-bottom: 64px; }
+            .site-footer p { font-size: 13px; }
+
+            main {
+                max-width: 1100px;
+                margin: 40px auto;
+                padding: 0 20px 60px;
+            }
+
+            .about-hero {
+                display: flex;
+                gap: 32px;
+                align-items: flex-start;
+                margin-bottom: 48px;
+                padding-bottom: 32px;
+                border-bottom: 4px solid #b94a3a;
+            }
+
+            .about-hero-img {
+                flex: 0 0 240px;
+                text-align: center;
+            }
+
+            .about-hero-img img {
+                width: 100%;
+                max-width: 240px;
+                border-radius: 12px;
+                box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+            }
+
+            .about-hero-text {
+                flex: 1;
+                padding: 12px 0;
+            }
+
+            .about-hero-text h1 {
+                margin: 0 0 16px 0;
+                font-size: 32px;
+                color: #111;
+            }
+
+            .about-hero-text p {
+                color: #444;
+                line-height: 1.6;
+                margin: 12px;
+                font-size: 15px;
+                text-align: justify;
+            }
+
+            .about-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                margin-bottom: 40px;
+            }
+
+            .contact-section {
+                background: #fff;
+                padding: 24px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                transition: box-shadow 200ms ease, transform 200ms ease;
+            }
+
+            .contact-section h2 {
+                margin: 0 0 16px 0;
+                font-size: 20px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            .form-group {
+                margin-bottom: 14px;
+            }
+
+            .form-group label {
+                display: block;
+                font-weight: 600;
+                margin-bottom: 6px;
+                color: #333;
+                font-size: 14px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                width: 100%;
+                padding: 8px 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                box-sizing: border-box;
+                transition: border-color 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+            }
+
+            .form-group input:focus,
+            .form-group textarea:focus {
+                outline: none;
+                border-color: #b94a3a;
+                box-shadow: 0 0 0 3px rgba(185, 74, 58, 0.1);
+                background-color: #fafafa;
+            }
+
+            .form-group textarea {
+                resize: vertical;
+                min-height: 100px;
+            }
+
+            .form-group button {
+                background: #b94a3a;
+                color: #fff;
+                padding: 10px 24px;
+                border: none;
+                border-radius: 20px;
+                font-weight: 700;
+                cursor: pointer;
+                width: 100%;
+                transition: transform 150ms ease, opacity 150ms ease, box-shadow 150ms ease;
+            }
+
+            .form-group button:hover {
+                transform: translateY(-3px);
+                opacity: 0.98;
+                box-shadow: 0 6px 16px rgba(185, 74, 58, 0.25);
+            }
+
+            .form-group button:active {
+                transform: translateY(-1px);
+                box-shadow: 0 2px 8px rgba(185, 74, 58, 0.15);
+            }
+
+            .social-section {
+                background: rgba(201, 76, 58, 0.08);
+                padding: 24px;
+                border-radius: 8px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .social-img {
+                align-self: center;
+            }
+
+            .social-item {
+                margin-bottom: 16px;
+                padding: 8px 0;
+                text-align: left;
+            }
+
+            .social-item a {
+                color: #294176;
+                text-decoration: none;
+                font-weight: 600;
+                transition: color 150ms ease;
+            }
+
+            .social-item a:hover {
+                color: #b94a3a;
+                text-decoration: underline;
+            }
+
+            .social-item .icon {
+                margin-right: 6px;
+            }
+
+            .social-img {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto 16px;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            }
+
+            .social-img img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+
+            @media (max-width: 900px) {
+                .about-hero {
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                }
+                .about-hero-img {
+                    flex: 0 0 200px;
+                }
+                .about-content {
+                    grid-template-columns: 1fr;
+                    gap: 24px;
+                }
+            }
+
+            .demo-alert {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #fff;
+                padding: 32px 28px;
+                border-radius: 12px;
+                box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+                z-index: 1000;
+                text-align: center;
+                max-width: 400px;
+                animation: slideIn 300ms ease;
+            }
+
+            @keyframes slideIn {
+                from {
+                    transform: translate(-50%, -50%) scale(0.9);
+                    opacity: 0;
+                }
+                to {
+                    transform: translate(-50%, -50%) scale(1);
+                    opacity: 1;
+                }
+            }
+
+            .demo-alert h3 {
+                margin: 0 0 12px 0;
+                color: #111;
+                font-size: 20px;
+            }
+
+            .demo-alert p {
+                margin: 0 0 20px 0;
+                color: #666;
+                font-size: 14px;
+            }
+
+            .demo-alert button {
+                background: #b94a3a;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                border-radius: 6px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: opacity 150ms ease;
+            }
+
+            .demo-alert button:hover {
+                opacity: 0.95;
+            }
+
+            .demo-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.4);
+                z-index: 999;
+                animation: fadeIn 200ms ease;
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="header-inner">
+                <h1> CLANN'S TECH SPACE </h1>
+                <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+                <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true"><span class="hamburger"></span></label>
+                <nav class="nav-links" aria-label="Main navigation">
+                    <a href="index.html"><i class="bi bi-house"> </i> HOME</a>
+                    <a href="project.html"><i class="bi bi-code-square"> </i> PROJECTS</a>
+                    <a href="about-me.html" class="active" style="border-right: none;"><i class="bi bi-person-square"> </i> ABOUT ME</a>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <section class="about-hero">
+                <div class="about-hero-img">
+                    <img src="img/clann.JPG" alt="Clann Daniel R. Del Rosario">
+                </div>
+                <div class="about-hero-text">
+                    <h1>Clann Daniel R. Del Rosario</h1>
+                    <p><strong>I am a Grade 11 student from Unida Christian Colleges, studying in the ICT strand.</strong> I have 
+                        learned the basics of HTML and CSS, which helped me understand how websites are built and designed. I am 
+                        also very interested in games and technology, and I enjoy exploring how they work. My goal is to continue 
+                        improving my ICT skills and, in the future, pursue a career related to game development or other fields in 
+                        information technology. In my free time, I like playing games, trying out new digital tools, and learning 
+                        more about computers.</p>
+                </div>
+            </section>
+
+            <section class="about-content">
+                <div class="contact-section">
+                    <h2><i class="bi bi-telephone"></i> Contact Me:</h2>
+                    <form id="contactForm" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject:</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit"><i class="bi bi-arrow-right"></i> Send!</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="social-section">
+                    <div class="social-img">
+                        <img src="img/clann-1x1.JPG" alt="Clann Daniel R. Del Rosario">
+                    </div>
+                    <div class="social-item">
+                        <i class="bi bi-facebook"></i>
+                        <b>Facebook:</b> <a href="https://www.facebook.com/clann.delrosario.3" target="_blank" rel="noopener noreferrer">Clann Del Rosario</a>
+                    </div>
+                    <div class="social-item">
+                        <i class="bi bi-github"></i>
+                        <b>GitHub:</b> <a href="https://github.com/clanndlrsr" target="_blank" rel="noopener noreferrer">clanndlrsr</a>
+                    </div>
+                    <div class="social-item">
+                        <i class="bi bi-envelope-fill"></i>
+                        <b>Email:</b> <a href="mailto:clanndanieldelrosario@gmail.com">clanndanieldelrosario@gmail.com</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <p style="margin:0; font-weight:600;">© 2025 Clann Daniel R. Del Rosario — @clanndlrsr</p>
+            </div>
+        </footer>
+
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const overlay = document.createElement('div');
+                overlay.className = 'demo-overlay';
+                document.body.appendChild(overlay);
+                
+                const alert = document.createElement('div');
+                alert.className = 'demo-alert';
+                alert.innerHTML = `
+                    <h3>📧 Demo Message</h3>
+                    <p>This is a demo contact form. The message was not actually sent. This is just for demonstration purposes.</p>
+                    <button onclick="this.closest('.demo-alert').parentElement.removeChild(this.closest('.demo-alert')); document.body.removeChild(document.querySelector('.demo-overlay'));">Close</button>
+                `;
+                document.body.appendChild(alert);
+                
+                this.reset();
+            });
+        </script>
+    </body>
+</html>
