@@ -18,6 +18,8 @@
                     <a href="project.html"><i class="bi bi-code-square"> </i> PROJECTS</a>
                     <a href="about-me.html" style="border-right: none;"><i class="bi bi-person-square"> </i> ABOUT ME</a>
                 </nav>
+                <input type="checkbox" id="dark-mode-toggle" class="dark-mode-toggle" aria-hidden="true">
+                <label for="dark-mode-toggle" class="dark-mode-label" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="bi bi-moon-stars"></i></label>
             </div>
         </header>
         <main class="home-main">
@@ -37,5 +39,39 @@
                 <p style="margin:0; font-weight:600;"><i class="bi bi-c-circle"></i> 2025 Clann Daniel R. Del Rosario — <i class="bi bi-at"></i>clanndlrsr</p>
             </div>
         </footer>
+
+        <script>
+            // Dark mode toggle functionality
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            const darkModeLabel = document.querySelector('.dark-mode-label');
+            const body = document.body;
+
+            // Check for saved dark mode preference or default to false
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (isDarkMode) {
+                body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+                updateDarkModeIcon();
+            }
+
+            // Toggle dark mode
+            darkModeToggle.addEventListener('change', function() {
+                body.classList.toggle('dark-mode');
+                localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+                updateDarkModeIcon();
+            });
+
+            // Update icon based on dark mode state
+            function updateDarkModeIcon() {
+                const icon = darkModeLabel.querySelector('i');
+                if (body.classList.contains('dark-mode')) {
+                    icon.className = 'bi bi-sun-fill';
+                    darkModeLabel.title = 'Toggle light mode';
+                } else {
+                    icon.className = 'bi bi-moon-stars';
+                    darkModeLabel.title = 'Toggle dark mode';
+                }
+            }
+        </script>
     </body>
 </html>
