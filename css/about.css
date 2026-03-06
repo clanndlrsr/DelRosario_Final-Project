@@ -400,6 +400,37 @@
                 box-shadow: 0 2px 8px rgba(185, 74, 58, 0.15);
             }
 
+            .social-section {
+                background: rgba(201, 76, 58, 0.08);
+                padding: 24px;
+                border-radius: 8px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .social-img {
+                align-self: center;
+            }
+
+            .social-item {
+                margin-bottom: 16px;
+                padding: 8px 0;
+                text-align: left;
+            }
+
+            .social-item a {
+                color: #294176;
+                text-decoration: none;
+                font-weight: 600;
+                transition: color 150ms ease;
+            }
+
+            .social-item a:hover {
+                color: #b94a3a;
+                text-decoration: underline;
+            }
+
             .social-item .icon {
                 margin-right: 6px;
             }
