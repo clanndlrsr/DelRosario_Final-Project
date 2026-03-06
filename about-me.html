@@ -92,12 +92,10 @@
         </footer>
 
         <script>
-            // Dark mode toggle functionality
             const darkModeToggle = document.getElementById('dark-mode-toggle');
             const darkModeLabel = document.querySelector('.dark-mode-label');
             const body = document.body;
 
-            // Check for saved dark mode preference or default to false
             const isDarkMode = localStorage.getItem('darkMode') === 'true';
             if (isDarkMode) {
                 body.classList.add('dark-mode');
@@ -105,14 +103,12 @@
                 updateDarkModeIcon();
             }
 
-            // Toggle dark mode
             darkModeToggle.addEventListener('change', function() {
                 body.classList.toggle('dark-mode');
                 localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
                 updateDarkModeIcon();
             });
 
-            // Update icon based on dark mode state
             function updateDarkModeIcon() {
                 const icon = darkModeLabel.querySelector('i');
                 if (body.classList.contains('dark-mode')) {
@@ -124,7 +120,6 @@
                 }
             }
 
-            // Contact form functionality
             document.getElementById('contactForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 
